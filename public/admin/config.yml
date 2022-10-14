@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: 'public/static/images' # Media files will be stored in the repo under static/images/uploads
+public_folder: '/static/images' # The src attribute for uploaded media will begin with /images/uploads
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: '/data/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{title}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Modified Date', name: 'lastmod', widget: 'datetime' }
+      - {
+          label: 'Draft post',
+          name: 'draft',
+          widget: 'boolean',
+          hint: 'Publish post to set to false',
+          required: true,
+          default: true,
+        }
+      - { label: 'Summary', name: 'summary', widget: 'markdown' }
+      - { label: 'Featured Images', name: 'images', widget: 'list' }
+      - { label: 'Authors', name: 'authors', widget: 'list' }
+      - { label: 'Layout', name: 'layout', widget: 'string' }
+      - { label: 'CanonicalUrl', name: 'canonicalUrl', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
