@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app *.netlify.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app *.netlify.com unpkg.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
@@ -89,6 +89,15 @@ module.exports = withContentlayer(
       }
 
       return config
+    },
+    async redirects() {
+      return [
+        {
+          source: '/admin',
+          destination: '/admin/index.html',
+          permanent: false,
+        },
+      ]
     },
   })
 )
