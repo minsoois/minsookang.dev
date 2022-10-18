@@ -2,6 +2,7 @@ import { CmsConfig } from 'netlify-cms-core'
 import blog from './blog'
 
 const config: CmsConfig = {
+  load_config_file: false,
   // Backend configuration, in this case with git
   backend: {
     name: 'git-gateway',
@@ -10,7 +11,7 @@ const config: CmsConfig = {
   },
 
   // Local backend is used during development
-  local_backend: true,
+  local_backend: false,
 
   // Where to store the images
   media_folder: 'public/static/images',
