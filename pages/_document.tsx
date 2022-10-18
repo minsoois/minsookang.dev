@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -24,7 +23,6 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-          <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></Script>
         </Head>
         <body className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
           <Main />

@@ -1,14 +1,21 @@
+publish_mode: editorial_workflow
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
-media_folder: 'public/static/images'
-public_folder: '/static/images'
+  squash_merges: true
+# when using the default proxy server port
+local_backend: false
+media_folder: public/static/images/blog
+public_folder: /static/images/blog
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: '/data/blog'
+  - name: blog
+    label: Blog
+    folder: data/blog
     create: true
     slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    preview_path: 'blog/{{slug}}'
+    extension: mdx
+    format: frontmatter
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }

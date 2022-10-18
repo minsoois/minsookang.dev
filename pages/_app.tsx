@@ -12,6 +12,12 @@ import siteMetadata from '@/data/siteMetadata'
 import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 
+declare global {
+  interface Window {
+    CMS: any
+  }
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
