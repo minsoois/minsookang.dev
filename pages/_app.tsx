@@ -14,7 +14,7 @@ import LayoutWrapper from '@/components/LayoutWrapper'
 
 declare global {
   interface Window {
-    CMS: any
+    CMS: unknown
   }
 }
 
